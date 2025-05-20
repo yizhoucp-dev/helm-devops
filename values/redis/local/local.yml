@@ -1,0 +1,13 @@
+architecture: standalone
+
+image:
+  registry: host.docker.internal:5000/mirror
+  repository: bitnami/redis
+
+global:
+  redis:
+    password: "123456"
+
+master:
+  persistence:
+    enabled: false

@@ -1,0 +1,7 @@
+global:
+  # hub x86: host.docker.internal:5000/mirror/istio
+  # arm 版本
+  hub: host.docker.internal:5000/mirror/arm/istio
+
+  proxy:
+    excludeOutboundPorts: "9092,6379,9876"

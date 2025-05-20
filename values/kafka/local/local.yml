@@ -1,0 +1,35 @@
+image:
+  repository: host.docker.internal:5000/mirror/kafka
+  pullPolicy: IfNotPresent
+  tag: v3.3.2
+
+broker:
+  ## broker.combinedMode 混部模式, 将 controller 和 broker 部署在一起
+  ## process.roles: "broker,controller"
+  combinedMode:
+    enabled: true
+  replicaCount: 1
+  heapOpts: "-Xms512m -Xmx512m"
+  persistence:
+    enabled: false
+  resources:
+    limits:
+      cpu: 4
+      memory: 8Gi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  extraEnvs:
+    - name: KAFKA_CFG_LOG_RETENTION_HOURS
+      value: "72"
+    - name: KAFKA_CFG_OFFSETS_TOPIC_REPLICATION_FACTOR
+      value: "1"
+    - name: KAFKA_CFG_LOG_RETENTION_MS
+      value: "43200000" # 默认保留12h
+    - name: KAFKA_CFG_LOG_SEGMENT_BYTES
+      value: "33554432" # 32M
+    - name: KAFKA_CFG_LOG_ROLL_MS
+      value: "43200000" # 12h强制滚动一次
+
+ui:
+  enabled: false
