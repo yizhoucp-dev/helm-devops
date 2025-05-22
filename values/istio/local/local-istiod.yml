@@ -4,4 +4,4 @@ global:
   hub: host.docker.internal:5000/mirror/arm/istio
 
   proxy:
-    excludeOutboundPorts: "9092,6379,9876"
+    excludeOutboundPorts: "9092,6379,9876,8848"

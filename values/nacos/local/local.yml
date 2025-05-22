@@ -1,0 +1,36 @@
+global:
+  imageRegistry: "host.docker.internal:5000/mirror"
+
+resources:
+ limits:
+   cpu: 2
+ requests:
+   cpu: 100m
+
+replicaCount: 1
+
+plugin:
+  image:
+    tag: "1.1"
+
+initDB:
+  enabled: false
+
+mysql:
+  secondary:
+    replicaCount: 0
+
+service:
+  ports:
+    http:
+      port: 8848
+      protocol: TCP
+    client-rpc:
+      port: 9848
+      protocol: TCP
+    raft-rpc:
+      port: 9849
+      protocol: TCP
+    old-raft-rpc:
+      port: 7848
+      protocol: TCP
