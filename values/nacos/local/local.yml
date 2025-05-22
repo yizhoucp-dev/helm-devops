@@ -14,7 +14,8 @@ plugin:
     tag: "1.1"
 
 initDB:
-  enabled: false
+  image:
+    tag: "8.0"
 
 mysql:
   secondary:

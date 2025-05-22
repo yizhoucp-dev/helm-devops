@@ -1,5 +1,6 @@
 global:
-  # hub x86: host.docker.internal:5000/mirror/istio
+  # x86版本
+  # hub: host.docker.internal:5000/mirror/istio
   # arm 版本
   hub: host.docker.internal:5000/mirror/arm/istio
 
